@@ -15,6 +15,8 @@ const {
   update,
   list,
   productsCount,
+  productStar,
+  listRelated,
 } = require('../controllers/product');
 
 //we need to verify that the token provided by the frontend is valid, we'll do so by validating with
@@ -31,5 +33,12 @@ router.get('/product/:slug', read);
 router.put('/product/:slug', authCheck, adminCheck, update);
 
 router.post('/products', list);
+
+//rating
+
+router.put('/product/star/:productId', authCheck, productStar);
+
+//related products
+router.get('/product/related/:productId', listRelated);
 
 module.exports = router;
