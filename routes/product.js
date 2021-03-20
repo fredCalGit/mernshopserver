@@ -17,6 +17,7 @@ const {
   productsCount,
   productStar,
   listRelated,
+  searchFilters,
 } = require('../controllers/product');
 
 //we need to verify that the token provided by the frontend is valid, we'll do so by validating with
@@ -40,5 +41,8 @@ router.put('/product/star/:productId', authCheck, productStar);
 
 //related products
 router.get('/product/related/:productId', listRelated);
+
+//search
+router.post('/search/filters', searchFilters);
 
 module.exports = router;
